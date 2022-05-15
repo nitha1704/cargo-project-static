@@ -8,7 +8,8 @@ import Dropzone from "dropzone";
 })
 export class PaymentNoticeComponent implements OnInit {
   isModalDisplay: Boolean;
-
+  isMeridian: any;
+  myTime: any;
   constructor() {}
 
   ngOnInit(): void {
