@@ -1,0 +1,205 @@
+<section id="purchase" class="min-vh-100">
+  <div class="card purchase-card">
+    <div class="d-flex flex-row justify-content-between">
+      <div>
+        <h3>ขั้นตอนการสั่งซื้อ</h3>
+        <ol>
+          <li>ดาวน์โหลดไฟล์สั่งซื้อตามลิงค์ด้านล่าง</li>
+          <li>ลูกค้ากรอกรายละเอียดในไฟล์ใบสั่งซื้อ</li>
+          <li>อัพโหลดไฟล์เพื่อสร้างรายการสั่งซื้อ</li>
+          <li>
+            บริษัทประสานงานสั่งซื้อสินค้ากับร้านค้าทันที
+            รบกวนรอทางบริษัทสรุปค่าใช้จ่ายประมาณ 2 วัน
+          </li>
+          <li>
+            เมื่อเจ้าหน้าที่ทำการสรุปออเดอร์เสร็จเรียบร้อยแล้ว
+            สถานะออเดอร์จะเปลี่ยนเป็น "รอชำระเงิน"
+          </li>
+          <li>
+            ลูกค้าชำระค่าใช้จ่ายในครั้งแรก ซึ่งเป็นค่าสินค้า และค่าจัดส่งในจีน
+            (ถ้ามี) และทางบริษัทชำระค่าสินค้าให้แก่ร้านค้าทันที <br />
+            * เนื่องจากทางบริษัทสั่งสินค้าเลยทันที
+            หลังสรุปลูกค้าต้องทำการชำระยอดเงินภายใน 2 วัน
+            มิฉะนั้นออเดอร์จะถูกยกเลิกโดยอัตโนมัติ
+          </li>
+          <li>
+            ลูกค้าสามารถติดตามสถานะสินค้าได้ที่เมนู "สร้าง/ติดตามการสั่งซื้อ"
+          </li>
+        </ol>
+      </div>
+      <div class="d-flex flex-column">
+        <a href="javascript:void(0)">วิธีดูร้านค้าใน taobao และ tmall</a>
+        <a class="text-danger" href="javascript:void(0)"
+          >เงื่อนไขสั่งซื้อ-นำเข้า BTC CARGO</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="card purchase-card">
+    <h2 class="mb-2">Link</h2>
+    <div class="input-link">
+      <input [(ngModel)]="url" type="text" class="form-control mr-4" />
+      <button
+        type="button"
+        class="btn btn-danger search-button"
+        (click)="getProduct()"
+      >
+        ไป
+      </button>
+    </div>
+    <div *ngIf="product" class="d-flex flex-column">
+      <div class="divider"></div>
+      <div class="result">
+        <div class="image-section">
+          <img
+            class="img-fluid item-image align-self-center"
+            [src]="product.item_imgs[selectedImg]"
+          />
+          <div class="thumbnail-list">
+            <img
+              class="img-fluid thumbnail-image mr-2"
+              *ngFor="let img of product.item_imgs; let i = index"
+              [src]="img"
+              (click)="selectedImg = i"
+            />
+          </div>
+        </div>
+        <div class="details">
+          <h2 class="mb-2">{{ product.title }}</h2>
+          <div class="row mb-2">
+            <div class="col-2 d-flex align-items-center">
+              <h3>Price</h3>
+            </div>
+            <div class="col-6 d-flex align-items-center">
+              <h3 class="mr-2">¥</h3>
+              <h2
+                *ngIf="product.has_discount === 'true'"
+                class="text-through mr-2"
+              >
+                {{ originalPrice }}
+              </h2>
+              <h2>{{ price }}</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2 d-flex align-items-center">
+              <h3>Freight</h3>
+            </div>
+            <div class="col-6 d-flex align-items-center">
+              <h3>{{ product.freight }}</h3>
+            </div>
+          </div>
+          <div class="details-divider"></div>
+          <div class="row mt-1">
+            <div class="col-2 d-flex align-items-center">
+              <h3>ไซส์</h3>
+            </div>
+            <div class="col d-flex align-items-center">
+              <div
+                *ngFor="let prop of product.properties[20509].types"
+                class="btn-group-toggle mr-2"
+                data-toggle="buttons"
+              >
+                <label
+                  class="btn btn-secondary"
+                  [ngClass]="{
+                    active: selectedSize === prop.name
+                  }"
+                  btnCheckbox
+                >
+                  <input
+                    type="checkbox"
+                    checked=""
+                    (click)="onSelectSize(prop.name,prop.id)"
+                    autocomplete="off"
+                  />
+                  {{ prop.name }}
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-2 d-flex align-items-center">
+              <h3>สี</h3>
+            </div>
+            <div class="col d-flex align-items-center">
+              <div
+                *ngFor="let prop of product.properties[1627207].types"
+                class="btn-group-toggle mr-2"
+                data-toggle="buttons"
+              >
+                <label
+                  class="btn btn-secondary"
+                  [ngClass]="{
+                    active: selectedColor === prop.name
+                  }"
+                  btnCheckbox
+                >
+                  <input
+                    type="checkbox"
+                    checked=""
+                    (click)="onSelectColor(prop.name,prop.id)"
+                    autocomplete="off"
+                  />
+                  {{ prop.name }}
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-2 d-flex align-items-center">
+              <h3>จำนวน</h3>
+            </div>
+            <div class="col d-flex align-items-center">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <button
+                    class="btn btn-outline-primary quality-button"
+                    type="button"
+                    (click)="removeAmount()"
+                  >
+                    -
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder=""
+                  [(ngModel)]="amount"
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-outline-primary quality-button"
+                    type="button"
+                    (click)="addAmount()"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col d-flex align-items-center">
+              <h3>หมายเหตุ</h3>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col d-flex align-items-center">
+              <textarea
+                class="form-control"
+                id="input-note"
+                type="text"
+                maxlength="150"
+                rows="3"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="add-to-cart mt-3">
+        <button type="button" class="btn btn-danger">เพิ่มลงรถเข็น</button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,166 @@
+<section>
+  <div class="card parcel-list-card">
+    <div class="card-header justify-content-between">
+      <h2 class="card-title">ติดตามรายการพัสดุ</h2>
+      <a
+        class="btn btn-icon btn-3 btn-primary"
+        type="button"
+        [routerLink]="['/web/create-parcel']"
+      >
+        <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
+        <span class="btn-inner--text">สร้างรายการพัสดุ</span>
+      </a>
+    </div>
+    <div class="card-body">
+      <div
+        class="d-flex flex-row justify-content-between align-items-center mb-3"
+      >
+        <h2>รายการพัสดุ</h2>
+        <div class="d-flex flex-row align-items-center justify-content-end">
+          <p class="text-nowrap mr-3">เลขพัสดุ</p>
+          <input
+            type="text"
+            class="form-control mr-3 input-text w-auto"
+            placeholder=""
+            maxlength="50"
+          />
+          <p class="text-nowrap mr-3">วันที่ออกจากจีน</p>
+          <div class="form-group mr-3 mb-0">
+            <div class="input-group input-group-alternative">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="ni ni-calendar-grid-58"></i>
+                </span>
+              </div>
+              <input
+                type="text"
+                placeholder=""
+                class="form-control"
+                bsDatepicker
+                [bsValue]="bsValue"
+                [bsConfig]="{ isAnimated: true, containerClass: 'theme-red' }"
+              />
+            </div>
+          </div>
+          <p class="text-nowrap mr-3">สถานะ</p>
+          <div class="dropdown" dropdown>
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              dropdownToggle
+            >
+              {{ status }}
+            </button>
+            <div
+              aria-labelledby="dropdownMenuButton"
+              *dropdownMenu
+              class="dropdown-menu"
+            >
+              <a class="dropdown-item" (click)="status = 'เข้าโกดังจีน'"
+                >เข้าโกดังจีน</a
+              >
+              <a class="dropdown-item" (click)="status = 'ออกจีน'">ออกจีน</a>
+              <a class="dropdown-item" (click)="status = 'ถึงไทย'">ถึงไทย</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="table align-items-center table-flush">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">เลขตู้</th>
+              <th scope="col">ลำดับชิ้น</th>
+              <th scope="col">เลขพัสดุ</th>
+              <th scope="col">จำนวนกล่อง</th>
+              <th scope="col">เลขที่สั่งซื้อ</th>
+              <th scope="col">คาดว่าจะถึงไทย</th>
+              <th scope="col">สถานะ</th>
+              <th scope="col">รายละเอียด</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lot No.</td>
+              <td>Order in Lot</td>
+              <td>Tracking No.</td>
+              <td>Quantity</td>
+              <td>Order No.</td>
+              <td>Arrival Date</td>
+              <td>เข้าโกดังจีน / ออกจีน / ถึงไทย</td>
+              <td>
+                <a [routerLink]="['/web/parcel-details']">ดูรายละเอียด</a>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Lot No.</td>
+              <td>Order in Lot</td>
+              <td>Tracking No.</td>
+              <td>Quantity</td>
+              <td>Order No.</td>
+              <td>Arrival Date</td>
+              <td>เข้าโกดังจีน / ออกจีน / ถึงไทย</td>
+              <td>
+                <a [routerLink]="['/web/parcel-details']">ดูรายละเอียด</a>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Lot No.</td>
+              <td>Order in Lot</td>
+              <td>Tracking No.</td>
+              <td>Quantity</td>
+              <td>Order No.</td>
+              <td>Arrival Date</td>
+              <td>เข้าโกดังจีน / ออกจีน / ถึงไทย</td>
+              <td>
+                <a [routerLink]="['/web/parcel-details']">ดูรายละเอียด</a>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Lot No.</td>
+              <td>Order in Lot</td>
+              <td>Tracking No.</td>
+              <td>Quantity</td>
+              <td>Order No.</td>
+              <td>Arrival Date</td>
+              <td>เข้าโกดังจีน / ออกจีน / ถึงไทย</td>
+              <td>
+                <a [routerLink]="['/web/parcel-details']">ดูรายละเอียด</a>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Lot No.</td>
+              <td>Order in Lot</td>
+              <td>Tracking No.</td>
+              <td>Quantity</td>
+              <td>Order No.</td>
+              <td>Arrival Date</td>
+              <td>เข้าโกดังจีน / ออกจีน / ถึงไทย</td>
+              <td>
+                <a [routerLink]="['/web/parcel-details']">ดูรายละเอียด</a>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Lot No.</td>
+              <td>Order in Lot</td>
+              <td>Tracking No.</td>
+              <td>Quantity</td>
+              <td>Order No.</td>
+              <td>Arrival Date</td>
+              <td>เข้าโกดังจีน / ออกจีน / ถึงไทย</td>
+              <td>
+                <a [routerLink]="['/web/parcel-details']">ดูรายละเอียด</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

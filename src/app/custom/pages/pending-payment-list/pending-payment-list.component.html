@@ -1,0 +1,83 @@
+<section id="pending-payment-list">
+  <div class="card container-card">
+    <div class="card-header">
+      <h2 class="card-title">รายการรอการชำระเงิน</h2>
+    </div>
+    <div class="card-body">
+      <div class="wrapper-filter mb-3">
+        <div class="filter1 d-flex align-items-center">
+          <h2 class="mr-3">ออเดอร์</h2>
+          <div class="form-group mb-0">
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+      </div>
+      <div class="wrapper-table overflow-x-auto">
+        <table class="table align-items-center">
+          <thead class="thead-light">
+            <tr>
+              <th>ออเดอร์</th>
+              <th>จำนวนร้าน</th>
+              <th>วันที่สร้างออเดอร์</th>
+              <th>จำนวนสินค้า</th>
+              <th>ยอดชำระ</th>
+              <th>สถานะ</th>
+              <th>ดูรายละเอียด</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Order No.1</td>
+              <td>Shop</td>
+              <td>DD/MM/YY</td>
+              <td>1</td>
+              <td>Baht</td>
+              <td>รอการตรวจสอบ</td>
+              <td>ดูรายละเอียด</td>
+            </tr>
+            <tr>
+              <td>Order No.2</td>
+              <td>Shop</td>
+              <td>DD/MM/YY</td>
+              <td>20</td>
+              <td>Baht</td>
+              <td>
+                <span>รอชำระเงิน</span>
+                <div class="block"></div>
+                <a [routerLink]="['/web/payment-notice']">แจ้งชำระเงิน</a>
+              </td>
+              <td>ดูรายละเอียด</td>
+            </tr>
+            <tr>
+              <td>Order No.3</td>
+              <td>Shop</td>
+              <td>DD/MM/YY</td>
+              <td>100</td>
+              <td>Baht</td>
+              <td>ชำระเงินแล้ว</td>
+              <td>ดูรายละเอียด</td>
+            </tr>
+            <tr>
+              <td>Order No.4</td>
+              <td>Shop</td>
+              <td>DD/MM/YY</td>
+              <td>15</td>
+              <td>Baht</td>
+              <td>จัดส่งแล้ว</td>
+              <td>ดูรายละเอียด</td>
+            </tr>
+            <tr>
+              <td>Order No.5</td>
+              <td>Shop</td>
+              <td>DD/MM/YY</td>
+              <td>88</td>
+              <td>Baht</td>
+              <td>ยกเลิก</td>
+              <td>ดูรายละเอียด</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

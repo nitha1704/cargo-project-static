@@ -1,0 +1,391 @@
+<section id="transport-payment">
+  <div class="card container-card">
+    <div class="card-header d-flex align-items-center justify-content-between">
+      <h2 class="card-title">สินค้ารอชำระค่าขนส่ง</h2>
+      <a class="btn btn-primary text-white" [routerLink]="['/web/create-bill']"
+        >+ สร้างรายการชำระเงิน</a
+      >
+    </div>
+    <div class="card-body">
+      <div
+        class="container-filter mb-3 d-flex align-items-center justify-content-between"
+      >
+        <h2>รายการรอการชำระเงิน</h2>
+        <div class="d-flex">
+          <div class="d-flex align-items-center mr-3">
+            <span class="text-nowrap mr-3">เลขพัสดุ</span>
+            <input type="text" class="form-control" placeholder="" />
+          </div>
+          <div class="d-flex align-items-center mr-3">
+            <span class="export-date text-nowrap mr-3">วันที่ออกจากจีน </span>
+            <div
+              class="input-group input-group-alternative input-group-birthdate"
+            >
+              <div class="input-group-prepend">
+                <span class="input-group-text"
+                  ><i class="ni ni-calendar-grid-58"></i
+                ></span>
+              </div>
+
+              <input
+                type="string"
+                id="input-birthdate"
+                placeholder=""
+                class="form-control"
+                bsDatepicker
+                [bsValue]="bsValue"
+                [bsConfig]="{
+                  isAnimated: true,
+                  containerClass: 'theme-red',
+                  dateInputFormat: 'YYYY-MM-DD'
+                }"
+                formControlName="birthDate"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper-table overflow-x-auto">
+        <table class="table align-items-center">
+          <thead class="thead-light">
+            <tr>
+              <th class="th-checkbox">
+                <input type="checkbox" (click)="checkAllBox($event.target)" />
+              </th>
+              <th class="th-no-order">เลขตู้/ลำดับ</th>
+              <th class="th-parcel-number">เลขพัสดุ</th>
+              <th class="th-type">ประเภทสินค้า</th>
+              <th class="th-export-date">วันส่งออกจีน</th>
+              <th class="th-arrive-thai">คาดว่าจะถึงไทย</th>
+              <th class="th-width">กว้าง</th>
+              <th class="th-length">ยาว</th>
+              <th class="th-height">สูง</th>
+              <th class="th-volume">ปริมาตร</th>
+              <th class="th-weight">น้ำหนัก</th>
+              <th class="th-quantity">จำนวนกล่อง</th>
+              <th class="th-packing">ตีลัง</th>
+              <th class="th-shipping-cost-china">ค่าขนส่งในจีน</th>
+              <th class="th-etc">อื่นๆ</th>
+              <th class="th-per-unit">หน่วยละ</th>
+              <th class="th-shipping-cost">ค่าขนส่ง</th>
+              <th class="th-storage-fees">ค่าจัดเก็บพัสดุ</th>
+              <th class="th-qc-cost">ค่า QC</th>
+              <th class="th-note">หมายเหตุ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="item">
+              <td class="td-checkbox">
+                <input type="checkbox" />
+              </td>
+              <td class="td-no-order">Lot No.Order</td>
+              <td class="td-parcel-number">Tracking No.</td>
+              <td class="td-type">P/D/HY/SP/SD</td>
+              <td class="td-export-date">DD/MM/YY</td>
+              <td class="td-arrive-thai">
+                <div class="wrapper">
+                  <p>รถ+15 DD/MM/YY</p>
+                  <p>เรือ+15 DD/MM/YY</p>
+                </div>
+              </td>
+              <td class="td-width">width cm.</td>
+              <td class="td-length">length cm.</td>
+              <td class="td-height">height cm.</td>
+              <td class="td-volume">volume m3</td>
+              <td class="td-weight">weight kg.</td>
+              <td class="td-quantity">Quantity</td>
+              <td class="td-packing">Baht</td>
+              <td class="td-shipping-cost-china">Baht</td>
+              <td class="td-etc">Baht</td>
+              <td class="td-per-unit">Baht</td>
+              <td class="td-shipping-cost">Baht</td>
+              <td class="td-storage-fees">Baht</td>
+              <td class="td-qc-cost">Baht</td>
+              <td class="td-note">Note</td>
+            </tr>
+            <tr class="item">
+              <td class="td-checkbox">
+                <input type="checkbox" />
+              </td>
+              <td class="td-no-order">Lot No.Order</td>
+              <td class="td-parcel-number">Tracking No.</td>
+              <td class="td-type">P/D/HY/SP/SD</td>
+              <td class="td-export-date">DD/MM/YY</td>
+              <td class="td-arrive-thai">
+                <div class="wrapper">
+                  <p>รถ+15 DD/MM/YY</p>
+                  <p>เรือ+15 DD/MM/YY</p>
+                </div>
+              </td>
+              <td class="td-width">width cm.</td>
+              <td class="td-length">length cm.</td>
+              <td class="td-height">height cm.</td>
+              <td class="td-volume">volume m3</td>
+              <td class="td-weight">weight kg.</td>
+              <td class="td-quantity">Quantity</td>
+              <td class="td-packing">Baht</td>
+              <td class="td-shipping-cost-china">Baht</td>
+              <td class="td-etc">Baht</td>
+              <td class="td-per-unit">Baht</td>
+              <td class="td-shipping-cost">Baht</td>
+              <td class="td-storage-fees">Baht</td>
+              <td class="td-qc-cost">Baht</td>
+              <td class="td-note">Note</td>
+            </tr>
+            <tr class="item">
+              <td class="td-checkbox">
+                <input type="checkbox" />
+              </td>
+              <td class="td-no-order">Lot No.Order</td>
+              <td class="td-parcel-number">Tracking No.</td>
+              <td class="td-type">P/D/HY/SP/SD</td>
+              <td class="td-export-date">DD/MM/YY</td>
+              <td class="td-arrive-thai">
+                <div class="wrapper">
+                  <p>รถ+15 DD/MM/YY</p>
+                  <p>เรือ+15 DD/MM/YY</p>
+                </div>
+              </td>
+              <td class="td-width">width cm.</td>
+              <td class="td-length">length cm.</td>
+              <td class="td-height">height cm.</td>
+              <td class="td-volume">volume m3</td>
+              <td class="td-weight">weight kg.</td>
+              <td class="td-quantity">Quantity</td>
+              <td class="td-packing">Baht</td>
+              <td class="td-shipping-cost-china">Baht</td>
+              <td class="td-etc">Baht</td>
+              <td class="td-per-unit">Baht</td>
+              <td class="td-shipping-cost">Baht</td>
+              <td class="td-storage-fees">Baht</td>
+              <td class="td-qc-cost">Baht</td>
+              <td class="td-note">Note</td>
+            </tr>
+            <tr class="item">
+              <td class="td-checkbox">
+                <input type="checkbox" />
+              </td>
+              <td class="td-no-order">Lot No.Order</td>
+              <td class="td-parcel-number">Tracking No.</td>
+              <td class="td-type">P/D/HY/SP/SD</td>
+              <td class="td-export-date">DD/MM/YY</td>
+              <td class="td-arrive-thai">
+                <div class="wrapper">
+                  <p>รถ+15 DD/MM/YY</p>
+                  <p>เรือ+15 DD/MM/YY</p>
+                </div>
+              </td>
+              <td class="td-width">width cm.</td>
+              <td class="td-length">length cm.</td>
+              <td class="td-height">height cm.</td>
+              <td class="td-volume">volume m3</td>
+              <td class="td-weight">weight kg.</td>
+              <td class="td-quantity">Quantity</td>
+              <td class="td-packing">Baht</td>
+              <td class="td-shipping-cost-china">Baht</td>
+              <td class="td-etc">Baht</td>
+              <td class="td-per-unit">Baht</td>
+              <td class="td-shipping-cost">Baht</td>
+              <td class="td-storage-fees">Baht</td>
+              <td class="td-qc-cost">Baht</td>
+              <td class="td-note">Note</td>
+            </tr>
+            <tr class="item">
+              <td class="td-checkbox">
+                <input type="checkbox" />
+              </td>
+              <td class="td-no-order">Lot No.Order</td>
+              <td class="td-parcel-number">Tracking No.</td>
+              <td class="td-type">P/D/HY/SP/SD</td>
+              <td class="td-export-date">DD/MM/YY</td>
+              <td class="td-arrive-thai">
+                <div class="wrapper">
+                  <p>รถ+15 DD/MM/YY</p>
+                  <p>เรือ+15 DD/MM/YY</p>
+                </div>
+              </td>
+              <td class="td-width">width cm.</td>
+              <td class="td-length">length cm.</td>
+              <td class="td-height">height cm.</td>
+              <td class="td-volume">volume m3</td>
+              <td class="td-weight">weight kg.</td>
+              <td class="td-quantity">Quantity</td>
+              <td class="td-packing">Baht</td>
+              <td class="td-shipping-cost-china">Baht</td>
+              <td class="td-etc">Baht</td>
+              <td class="td-per-unit">Baht</td>
+              <td class="td-shipping-cost">Baht</td>
+              <td class="td-storage-fees">Baht</td>
+              <td class="td-qc-cost">Baht</td>
+              <td class="td-note">Note</td>
+            </tr>
+            <tr class="item">
+              <td class="td-checkbox">
+                <input type="checkbox" />
+              </td>
+              <td class="td-no-order">Lot No.Order</td>
+              <td class="td-parcel-number">Tracking No.</td>
+              <td class="td-type">P/D/HY/SP/SD</td>
+              <td class="td-export-date">DD/MM/YY</td>
+              <td class="td-arrive-thai">
+                <div class="wrapper">
+                  <p>รถ+15 DD/MM/YY</p>
+                  <p>เรือ+15 DD/MM/YY</p>
+                </div>
+              </td>
+              <td class="td-width">width cm.</td>
+              <td class="td-length">length cm.</td>
+              <td class="td-height">height cm.</td>
+              <td class="td-volume">volume m3</td>
+              <td class="td-weight">weight kg.</td>
+              <td class="td-quantity">Quantity</td>
+              <td class="td-packing">Baht</td>
+              <td class="td-shipping-cost-china">Baht</td>
+              <td class="td-etc">Baht</td>
+              <td class="td-per-unit">Baht</td>
+              <td class="td-shipping-cost">Baht</td>
+              <td class="td-storage-fees">Baht</td>
+              <td class="td-qc-cost">Baht</td>
+              <td class="td-note">Note</td>
+            </tr>
+            <tr class="item">
+              <td class="td-checkbox">
+                <input type="checkbox" />
+              </td>
+              <td class="td-no-order">Lot No.Order</td>
+              <td class="td-parcel-number">Tracking No.</td>
+              <td class="td-type">P/D/HY/SP/SD</td>
+              <td class="td-export-date">DD/MM/YY</td>
+              <td class="td-arrive-thai">
+                <div class="wrapper">
+                  <p>รถ+15 DD/MM/YY</p>
+                  <p>เรือ+15 DD/MM/YY</p>
+                </div>
+              </td>
+              <td class="td-width">width cm.</td>
+              <td class="td-length">length cm.</td>
+              <td class="td-height">height cm.</td>
+              <td class="td-volume">volume m3</td>
+              <td class="td-weight">weight kg.</td>
+              <td class="td-quantity">Quantity</td>
+              <td class="td-packing">Baht</td>
+              <td class="td-shipping-cost-china">Baht</td>
+              <td class="td-etc">Baht</td>
+              <td class="td-per-unit">Baht</td>
+              <td class="td-shipping-cost">Baht</td>
+              <td class="td-storage-fees">Baht</td>
+              <td class="td-qc-cost">Baht</td>
+              <td class="td-note">Note</td>
+            </tr>
+            <tr class="item">
+              <td class="td-checkbox">
+                <input type="checkbox" />
+              </td>
+              <td class="td-no-order">Lot No.Order</td>
+              <td class="td-parcel-number">Tracking No.</td>
+              <td class="td-type">P/D/HY/SP/SD</td>
+              <td class="td-export-date">DD/MM/YY</td>
+              <td class="td-arrive-thai">
+                <div class="wrapper">
+                  <p>รถ+15 DD/MM/YY</p>
+                  <p>เรือ+15 DD/MM/YY</p>
+                </div>
+              </td>
+              <td class="td-width">width cm.</td>
+              <td class="td-length">length cm.</td>
+              <td class="td-height">height cm.</td>
+              <td class="td-volume">volume m3</td>
+              <td class="td-weight">weight kg.</td>
+              <td class="td-quantity">Quantity</td>
+              <td class="td-packing">Baht</td>
+              <td class="td-shipping-cost-china">Baht</td>
+              <td class="td-etc">Baht</td>
+              <td class="td-per-unit">Baht</td>
+              <td class="td-shipping-cost">Baht</td>
+              <td class="td-storage-fees">Baht</td>
+              <td class="td-qc-cost">Baht</td>
+              <td class="td-note">Note</td>
+            </tr>
+            <tr class="item">
+              <td class="td-checkbox">
+                <input type="checkbox" />
+              </td>
+              <td class="td-no-order">Lot No.Order</td>
+              <td class="td-parcel-number">Tracking No.</td>
+              <td class="td-type">P/D/HY/SP/SD</td>
+              <td class="td-export-date">DD/MM/YY</td>
+              <td class="td-arrive-thai">
+                <div class="wrapper">
+                  <p>รถ+15 DD/MM/YY</p>
+                  <p>เรือ+15 DD/MM/YY</p>
+                </div>
+              </td>
+              <td class="td-width">width cm.</td>
+              <td class="td-length">length cm.</td>
+              <td class="td-height">height cm.</td>
+              <td class="td-volume">volume m3</td>
+              <td class="td-weight">weight kg.</td>
+              <td class="td-quantity">Quantity</td>
+              <td class="td-packing">Baht</td>
+              <td class="td-shipping-cost-china">Baht</td>
+              <td class="td-etc">Baht</td>
+              <td class="td-per-unit">Baht</td>
+              <td class="td-shipping-cost">Baht</td>
+              <td class="td-storage-fees">Baht</td>
+              <td class="td-qc-cost">Baht</td>
+              <td class="td-note">Note</td>
+            </tr>
+            <tr class="item">
+              <td class="td-checkbox">
+                <input type="checkbox" />
+              </td>
+              <td class="td-no-order">Lot No.Order</td>
+              <td class="td-parcel-number">Tracking No.</td>
+              <td class="td-type">P/D/HY/SP/SD</td>
+              <td class="td-export-date">DD/MM/YY</td>
+              <td class="td-arrive-thai">
+                <div class="wrapper">
+                  <p>รถ+15 DD/MM/YY</p>
+                  <p>เรือ+15 DD/MM/YY</p>
+                </div>
+              </td>
+              <td class="td-width">width cm.</td>
+              <td class="td-length">length cm.</td>
+              <td class="td-height">height cm.</td>
+              <td class="td-volume">volume m3</td>
+              <td class="td-weight">weight kg.</td>
+              <td class="td-quantity">Quantity</td>
+              <td class="td-packing">Baht</td>
+              <td class="td-shipping-cost-china">Baht</td>
+              <td class="td-etc">Baht</td>
+              <td class="td-per-unit">Baht</td>
+              <td class="td-shipping-cost">Baht</td>
+              <td class="td-storage-fees">Baht</td>
+              <td class="td-qc-cost">Baht</td>
+              <td class="td-note">Note</td>
+            </tr>
+          </tbody>
+          <thead class="t-footer">
+            <tr>
+              <th class="total-no" colspan="4">รวม</th>
+              <th class="total-width">width cm.</th>
+              <th class="total-length">length cm.</th>
+              <th class="total-height">height cm.</th>
+              <th class="total-volume">volume m3</th>
+              <th class="total-total-volume">total volume m3</th>
+              <th class="total-weight">weight kg.</th>
+              <th class="total-quantity">Quantity</th>
+              <th class="total-packing">Baht</th>
+              <th class="total-shipping-cost-china">Baht</th>
+              <th class="total-etc">Baht</th>
+              <th class="total-per-unit">Baht</th>
+              <th class="total-shipping-cost">Baht</th>
+              <th class="total-storage-fees">Baht</th>
+              <th class="total-qc-cost">Baht</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+.card-header {
+  background-color: #ca3342fc;
+  color: #fff;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-title {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.parcel-card {
+  margin: 0px 20px;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
+th {
+  text-align: center;
+}
+
+.address-dropdown {
+  width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+.delivery-dropdown {
+  width: 165px;
+}
+
+.address-dropdown-menu {
+  width: 500px;
+}
+
+.address-dropdown-item {
+  white-space: normal;
+}

@@ -1,0 +1,250 @@
+<section id="create-bill">
+  <div class="create-bill-section1">
+    <div class="card container-card">
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <h2 class="card-title">สรุปรายการจัดส่ง</h2>
+        <div class="wrap-link">
+          <button class="btn btn-primary text-white" (click)="isModalDisplay = true">
+            + เพิ่มที่อยู่จัดส่งใหม่
+          </button>
+          <button class="btn btn-primary text-white" (click)="isModalDisplay = true">
+            + เพิ่มที่อยู่ใบเสร็จใหม่
+          </button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="wrapper-table overflow-x-auto">
+          <table class="table align-items-center">
+            <thead class="thead-light">
+              <tr>
+                <th class="th-parcel-number">เลขพัสดุ</th>
+                <th class="th-delivery-method">บริการจัดส่ง</th>
+                <th class="th-shipping-address">เลือกที่อยู่จัดส่ง</th>
+                <th class="th-billing-address">
+                  เลือกที่อยู่สำหรับใบเสร็จ/ใบส่งสินค้า
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="item">
+                <td class="td-parcel-number">
+                  <div class="parcel-number">Tracking No.1</div>
+                  <div class="parcel-number">Tracking No.2</div>
+                  <div class="parcel-number">Tracking No.3</div>
+                  <div class="parcel-number">Tracking No.4</div>
+                  <div class="parcel-number">Tracking No.5</div>
+                  <div class="display-4">...</div>
+                  <div class="parcel-number">Tracking No.100</div>
+                </td>
+                <td class="td-delivery-method align-top">
+                  <div class="dropdown delivery-method" dropdown>
+                    <button class="btn btn-secondary dropdown-toggle select-delivery-method" type="button"
+                      id="dropdownMenuButton" dropdownToggle>
+                      {{ deliveryMethodValue }}
+                    </button>
+                    <div aria-labelledby="dropdownMenuButton" *dropdownMenu class="dropdown-menu">
+                      <a class="dropdown-item" href="javascript:void(0)" *ngFor="let item of deliveryMethods"
+                        (click)="showRegion(item)">{{ item }}</a>
+                    </div>
+                  </div>
+                  <div class="region-wrapper my-3" *ngIf="isRegionDisplay">
+                    <div class="dropdown region" dropdown>
+                      <button class="btn btn-secondary dropdown-toggle select-region" type="button"
+                        id="dropdownMenuButton" dropdownToggle>
+                        {{ regionValue }}
+                      </button>
+                      <div aria-labelledby="dropdownMenuButton" *dropdownMenu class="dropdown-menu">
+                        <a class="dropdown-item" href="javascript:void(0)" *ngFor="let region of regions"
+                          (click)="filterProvince(region)">{{ region.name
+                          }}</a>
+                      </div>
+                    </div>
+                    <span class="block my-3"></span>
+                    <div class="dropdown province" dropdown>
+                      <button class="btn btn-secondary dropdown-toggle select-province" type="button"
+                        id="dropdownMenuButton" dropdownToggle>
+                        {{ provinceValue }}
+                      </button>
+                      <div aria-labelledby="dropdownMenuButton" *dropdownMenu class="dropdown-menu">
+                        <a class="dropdown-item" href="javascript:void(0)" *ngFor="let province of provinces"
+                          (click)="provinceValue = province.name_th">
+                          {{ province.name_th
+                          }}</a>
+                      </div>
+                    </div>
+                    <span class="block my-3"></span>
+                    <div class="dropdown express-list" dropdown>
+                      <button class="btn btn-secondary dropdown-toggle select-express" type="button"
+                        id="dropdownMenuButton" dropdownToggle>
+                        {{ expressValue }}
+                      </button>
+                      <div aria-labelledby="dropdownMenuButton" *dropdownMenu class="dropdown-menu">
+                        <a class="dropdown-item" href="javascript:void(0)" *ngFor="let expressName of expressList"
+                          (click)="expressValue = expressName">
+                          {{ expressName
+                          }}</a>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="td-shipping-address align-top">
+                  <div class="dropdown shipping-address" dropdown>
+                    <button class="btn btn-secondary dropdown-toggle select-shipping-address" type="button"
+                      id="dropdownMenuButton" dropdownToggle>
+                      {{ shippingAddressValue }}
+                    </button>
+                    <div aria-labelledby="dropdownMenuButton" *dropdownMenu class="dropdown-menu">
+                      <a class="dropdown-item" href="javascript:void(0)" *ngFor="let item of shippingAddress"
+                        (click)="shippingAddressValue = item">{{ item }}</a>
+                    </div>
+                  </div>
+                </td>
+                <td class="td-billing-address align-top">
+                  <div class="dropdown billing-address" dropdown>
+                    <button class="btn btn-secondary dropdown-toggle select-billing-address" type="button"
+                      id="dropdownMenuButton" dropdownToggle>
+                      {{ billingAddressValue }}
+                    </button>
+                    <div aria-labelledby="dropdownMenuButton" *dropdownMenu class="dropdown-menu">
+                      <a class="dropdown-item" href="javascript:void(0)" *ngFor="let item of billingAddress"
+                        (click)="billingAddressValue = item">{{ item }}</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="create-bill-section2 mt-5">
+    <div class="card container-card">
+      <div class="card-header">
+        <h2 class="card-title">สรุปรายการชำระเงิน</h2>
+      </div>
+      <div class="card-body">
+        <div class="container-filter mb-3">
+          <span>รหัส/คูปองส่วนลด</span>
+          <div class="d-flex">
+            <input type="text" class="form-control discount-code mr-2" placeholder="กรอกรหัส/คูปองส่วนลด" />
+            <button class="btn btn-primary">อัพเดท</button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="wrapper-table overflow-x-auto">
+          <table class="table align-items-center">
+            <thead class="thead-light">
+              <tr>
+                <th class="th-list-summary">สรุปรายการ</th>
+                <th class="th-amount">จำนวนเงิน</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="item">
+                <td class="td-transportation-cost">ค่าขนส่ง</td>
+                <td class="td-amount">1000 บาท</td>
+              </tr>
+              <tr class="item">
+                <td class="td-other-expenses">ค่าใช้จ่ายอื่นๆ</td>
+                <td class="td-amount">1000 บาท</td>
+              </tr>
+              <tr class="item">
+                <td class="td-shipping-cost">ค่าจัดส่งสินค้า</td>
+                <td class="td-amount">1000 บาท</td>
+              </tr>
+              <tr class="item">
+                <td class="td-other-expenses-in-shipping">
+                  ค่าใช้จ่ายอื่นๆ ในการจัดส่งสินค้า
+                </td>
+                <td class="td-amount">1000 บาท</td>
+              </tr>
+              <tr class="item">
+                <td class="td-parcel-storage-fee">ค่าจัดเก็บพัสดุ</td>
+                <td class="td-amount">1000 บาท</td>
+              </tr>
+              <tr class="item">
+                <td class="td-discount">ส่วนลด</td>
+                <td class="td-amount">1000 บาท</td>
+              </tr>
+              <tr class="item">
+                <th class="td-other-expenses">รวมยอดที่ต้องชำระ</th>
+                <th class="td-amount">4000 บาท</th>
+              </tr>
+            </tbody>
+          </table>
+          <div class="message text-right p-4">
+            <p class="text-danger mb-2">
+              หลังจากยืนยันการสร้างบิลแล้ว กรุณารอให้สถานะบิลเปลี่ยนเป็น
+              "รอชำระเงิน" ก่อนทำการชำระยอด
+            </p>
+            <div class="wrap-btn">
+              <button class="btn btn-danger">ยกเลิก</button>
+              <a class="btn btn-success" [routerLink]="['/web/bills']">
+                ยืนยันการสร้างบิล
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="btc-modal flex-center" *ngIf="isModalDisplay">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">กรอกข้อมูล</h5>
+          <button type="button" class="close-btn" data-dismiss="modal" aria-label="Close"
+            (click)="isModalDisplay = false">
+            <span aria-hidden="true" (click)="isModalDisplay = false">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-control-label" for="">ชื่อ-นามสกุล</label>
+            <input type="text" class="form-control" placeholder="ชื่อ-นามสกุล" />
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" for="">เบอร์โทรศัพท์</label>
+            <input type="text" class="form-control" placeholder="เบอร์โทรศัพท์" />
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" for="input-address-1">
+              ที่อยู่ 1
+            </label>
+            <input class="form-control" id="input-address-1" placeholder="บ้านเลขที่ ซอย ถนน ฯลฯ" type="text" />
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" for="select-new-address">
+              ที่อยู่ 2
+            </label>
+            <select-address [id]="'select-new-address'"></select-address>
+          </div>
+          <div class="form-group">
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" id="customCheckboxAddDefaultAddress" name="customCheckboxAddDefaultAddress"
+                class="custom-control-input" />
+              <label class="custom-control-label" for="customCheckboxAddDefaultAddress">ที่อยู่จัดส่ง</label>
+            </div>
+            <div class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" id="customCheckboxAddRegisterAddress" name="customCheckboxAddRegisterAddress"
+                class="custom-control-input" />
+              <label class="custom-control-label" for="customCheckboxAddRegisterAddress">ที่อยู่ออกใบเสร็จ</label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" (click)="isModalDisplay = false">
+            ปิด
+          </button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">
+            {{ modalButtonMsg }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,44 @@
+#faq {
+  color: #000000;
+  .wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 50px;
+    padding: 30px 20px;
+  }
+  .faq-item {
+    border-left: 5px solid gray;
+    padding-left: 5px;
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .faq-item.active {
+    border-left: 5px solid red;
+  }
+  .to-main-page {
+    display: inline-block;
+    margin: 20px 0 0 10px;
+    color:#000000;
+    font-size: 20px;
+    text-decoration: underline;
+    &:hover {
+      color: #ca3342fc;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #faq {
+    .wrapper {
+      grid-template-columns: 1fr;
+    }
+    .faq-list {
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+}

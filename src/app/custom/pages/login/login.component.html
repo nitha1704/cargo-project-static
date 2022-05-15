@@ -1,0 +1,165 @@
+<section id="login" *ngIf="!hasUser">
+  <div class="main-content">
+    <div class="header pt-5">
+      <div class="container pb-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-5 col-md-7">
+            <div class="card bg-secondary border-0 mb-0">
+              <div class="card-header bg-transparent pb-5">
+                <div class="text-center mt-2 mb-3">
+                  <small>เข้าสู่ระบบโดย</small>
+                </div>
+
+                <div class="btn-wrapper text-center">
+                  <app-google-login></app-google-login>
+                  <app-facebook-login></app-facebook-login>
+                  <app-line-login></app-line-login>
+                </div>
+              </div>
+
+              <div class="card-body px-lg-5 py-lg-5">
+                <ng-container *ngIf="isMsgBoxDisplay">
+                  <div
+                    class="card text-white mb-3 bg-success"
+                    *ngIf="isLoginSuccess"
+                  >
+                    <div class="card-body">
+                      <p class="card-text">{{ loginMsg }}</p>
+                    </div>
+                  </div>
+                  <div
+                    class="card text-white mb-3 bg-danger"
+                    *ngIf="!isLoginSuccess"
+                  >
+                    <div class="card-body">
+                      <p class="card-text">
+                        {{ loginMsg }}
+                        <a
+                          routerLink="/register"
+                          class="text-white"
+                          *ngIf="newRegisterMsg"
+                        >
+                          <u>สมัครใหม่</u>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </ng-container>
+
+                <div class="text-center mb-4">
+                  <small> หรือเข้าสู่ระบบด้วยข้อมูลประจำตัว </small>
+                </div>
+
+                <form
+                  id="login-form"
+                  [formGroup]="loginForm"
+                  (ngSubmit)="signInStatic()"
+                >
+                  <div
+                    class="form-group mb-3"
+                    [ngClass]="{ focused: focus === true }"
+                  >
+                    <div class="input-group input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="ni ni-circle-08"></i
+                        ></span>
+                      </div>
+                      <input
+                        class="form-control"
+                        placeholder="ชื่อผู้ใช้งาน"
+                        type="text"
+                        (focus)="focus = true"
+                        (blur)="focus = false"
+                        autocapitalize="off"
+                        autocorrect="off"
+                        formControlName="username"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="form-group"
+                    [ngClass]="{ focused: focus2 === true }"
+                  >
+                    <div
+                      class="input-group input-group-alternative wrap-password1"
+                    >
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="ni ni-lock-circle-open"></i
+                        ></span>
+                      </div>
+                      <input
+                        class="form-control"
+                        placeholder="รหัสผ่าน"
+                        type="password"
+                        [type]="showPassword ? 'text' : 'password'"
+                        (focus)="focus2 = true"
+                        (blur)="focus2 = false"
+                        autocapitalize="off"
+                        autocorrect="off"
+                        formControlName="password"
+                      />
+                      <div
+                        class="eye-icon"
+                        (click)="showPassword = !showPassword"
+                      >
+                        <i
+                          class="fas"
+                          [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+                        ></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="custom-control custom-control-alternative custom-checkbox"
+                  >
+                    <input
+                      class="custom-control-input"
+                      id=" customCheckLogin"
+                      type="checkbox"
+                      (click)="toggleRememberMe()"
+                    />
+                    <label class="custom-control-label" for=" customCheckLogin">
+                      <span>จดจำผู้ใช้งาน</span>
+                    </label>
+                  </div>
+                  <!-- <div class="reCAPTCHA-wrapper mt-2">
+                                        <re-captcha #captchaRef="reCaptcha" 
+                                        formControlName="recaptchaReactive"
+                                            (resolved)="resolved($event)" 
+                                            (error)="onError($event)" errorMode="handled"
+                                            siteKey="6LcwZhEeAAAAABNNNruzfoXbWK-6HiZwk9qMlgYy"></re-captcha>
+                                    </div> -->
+                  <div class="text-center">
+                    <button
+                      type="submit"
+                      class="btn btn-primary my-4"
+                      [disabled]="!isReCaptchaActive"
+                    >
+                      เข้าสู่ระบบ
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-6">
+                <a class="text-white" href="javascript:void(0)">
+                  <small>ลืมรหัสผ่าน?</small>
+                </a>
+              </div>
+
+              <div class="col-6 text-right">
+                <a class="text-white" [routerLink]="['/register']">
+                  <small>สร้างบัญชีใหม่</small>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

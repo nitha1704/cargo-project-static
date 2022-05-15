@@ -1,0 +1,315 @@
+<section>
+  <div class="card parcel-card">
+    <div class="card-header">
+      <h2 class="card-title">เลือกที่อยู่จัดส่ง</h2>
+    </div>
+    <div class="card-body">
+      <div
+        class="d-flex flex-row justify-content-between align-items-center mb-3"
+      >
+        <h2 class="mb-3">รายการพัสดุ</h2>
+        <a
+          class="btn btn-icon btn-3 btn-primary"
+          type="button"
+          [routerLink]=""
+          (click)="isDisplayAddAddress = true"
+        >
+          <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
+          <span class="btn-inner--text">เพิ่มที่อยู่จัดส่ง</span>
+        </a>
+      </div>
+
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col-3">เลขพัสดุ</th>
+            <th scope="col-3">ประเภทการขนส่ง</th>
+            <th scope="col-3">บริการขนส่ง</th>
+            <th class="col-3" scope="col-3">เลือกที่อยู่จัดส่ง</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items">
+            <td class="col-3">
+              <p>Tracking No</p>
+            </td>
+            <td class="text-center col-3">
+              <div class="dropdown" dropdown>
+                <button
+                  class="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  id="shipping-dropdownMenuButton"
+                  dropdownToggle
+                >
+                  {{ item.type }}
+                </button>
+                <div
+                  aria-labelledby="shipping-dropdownMenuButton"
+                  *dropdownMenu
+                  class="dropdown-menu"
+                >
+                  <a class="dropdown-item" (click)="item.type = 'รถ'">รถ</a>
+                  <a class="dropdown-item" (click)="item.type = 'เรือ'">เรือ</a>
+                </div>
+              </div>
+            </td>
+            <td class="text-center col-3">
+              <div class="dropdown" dropdown>
+                <button
+                  class="btn btn-secondary dropdown-toggle delivery-dropdown"
+                  type="button"
+                  id="delivery-dropdownMenuButton"
+                  dropdownToggle
+                >
+                  {{ item.delivery }}
+                </button>
+                <div
+                  aria-labelledby="delivery-dropdownMenuButton"
+                  *dropdownMenu
+                  class="dropdown-menu"
+                >
+                  <a class="dropdown-item" (click)="item.delivery = 'J&T'"
+                    >J&T</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    (click)="item.delivery = 'ขนส่งต่างจังหวัด'"
+                    >ขนส่งต่างจังหวัด</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    (click)="item.delivery = 'รถบริษัทจัดส่ง'"
+                    >รถบริษัทจัดส่ง</a
+                  >
+                  <a class="dropdown-item" (click)="item.delivery = 'มารับเอง'"
+                    >มารับเอง</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    (click)="item.delivery = 'ไปรษณีย์ลงทะเบียน'"
+                    >ไปรษณีย์ลงทะเบียน</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    (click)="item.delivery = 'ไปรษณีย์มารับเอง'"
+                    >ไปรษณีย์มารับเอง</a
+                  >
+                </div>
+              </div>
+            </td>
+            <td class="text-center col-3">
+              <div class="dropdown" dropdown>
+                <button
+                  class="btn btn-secondary dropdown-toggle address-dropdown"
+                  type="button"
+                  id="delivery-address-dropdownMenuButton"
+                  dropdownToggle
+                >
+                  {{ item.address.addressName }} -
+                  {{ item.address.customerName }} ({{ item.address.telephone }})
+                  {{ item.address.address1 }}, {{ item.address.address2 }}
+                </button>
+                <div
+                  aria-labelledby="delivery-address-dropdownMenuButton"
+                  *dropdownMenu
+                  class="dropdown-menu address-dropdown-menu"
+                >
+                  <a
+                    class="dropdown-item address-dropdown-item"
+                    (click)="item.address = homeAddress"
+                  >
+                    {{ homeAddress.addressName }} -
+                    {{ homeAddress.customerName }} ({{ homeAddress.telephone }})
+                    {{ homeAddress.address1 }}, {{ homeAddress.address2 }}
+                  </a>
+                  <a
+                    class="dropdown-item address-dropdown-item"
+                    (click)="item.address = officeAddress"
+                  >
+                    {{ officeAddress.addressName }} -
+                    {{ officeAddress.customerName }} ({{
+                      officeAddress.telephone
+                    }}) {{ officeAddress.address1 }},
+                    {{ officeAddress.address2 }}
+                  </a>
+                  <a
+                    class="dropdown-item address-dropdown-item"
+                    (click)="item.address = condomeniumAddress"
+                  >
+                    {{ condomeniumAddress.addressName }} -
+                    {{ condomeniumAddress.customerName }} ({{
+                      condomeniumAddress.telephone
+                    }}) {{ condomeniumAddress.address1 }},
+                    {{ condomeniumAddress.address2 }}
+                  </a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex flex-row justify-content-between align-items-end">
+        <p>หมายเหตุ: สามารถแก้ไขได้เมื่อสร้างรายการชำระเงิน</p>
+        <div class="d-flex flex-row justify-content-end mt-2">
+          <a
+            class="btn btn-danger mr-2"
+            type="button"
+            [routerLink]="['/web/create-parcel']"
+          >
+            ยกเลิก
+          </a>
+          <a
+            class="btn btn-primary mr-2"
+            type="button"
+            [routerLink]="['/web/parcel-list']"
+          >
+            ยืนยันพัสดุ
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btc-modal flex-center" *ngIf="isDisplayAddAddress">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add new address</h5>
+          <button
+            type="button"
+            class="close-btn"
+            data-dismiss="modal"
+            aria-label="Close"
+            (click)="isDisplayAddAddress = false"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="input-address-name">
+                  ชื่อที่อยู่
+                </label>
+                <input
+                  class="form-control"
+                  id="input-address-name"
+                  placeholder="ชื่อที่อยู่"
+                  type="text"
+                  maxlength="50"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="input-name">
+                  ชื่อ-นามสกุล
+                </label>
+                <input
+                  class="form-control"
+                  id="input-name"
+                  placeholder="ชื่อ-นามสกุล"
+                  type="text"
+                  maxlength="50"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="input-phone-number">
+                  เบอร์โทรศัพท์
+                </label>
+
+                <input
+                  class="form-control"
+                  id="input-phone-number"
+                  placeholder="เบอร์โทรศัพท์"
+                  type="number"
+                  maxlength="15"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="input-address-1">
+                  ที่อยู่ 1
+                </label>
+                <input
+                  class="form-control"
+                  id="input-address-1"
+                  placeholder="บ้านเลขที่ ซอย ถนน ฯลฯ"
+                  type="text"
+                  maxlength="100"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-control-label" for="select-new-address">
+                  ที่อยู่ 2
+                </label>
+                <select-address [id]="'select-new-address'"></select-address>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <div
+                  class="custom-control custom-checkbox custom-control-inline"
+                >
+                  <input
+                    type="checkbox"
+                    id="customCheckboxAddDefaultAddress"
+                    name="customCheckboxAddDefaultAddress"
+                    class="custom-control-input"
+                  />
+                  <label
+                    class="custom-control-label"
+                    for="customCheckboxAddDefaultAddress"
+                    >ที่อยู่จัดส่ง</label
+                  >
+                </div>
+                <div
+                  class="custom-control custom-checkbox custom-control-inline"
+                >
+                  <input
+                    type="checkbox"
+                    id="customCheckboxAddRegisterAddress"
+                    name="customCheckboxAddRegisterAddress"
+                    class="custom-control-input"
+                  />
+                  <label
+                    class="custom-control-label"
+                    for="customCheckboxAddRegisterAddress"
+                    >ที่อยู่ออกใบเสร็จ</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="isDisplayAddAddress = false"
+          >
+            ปิด
+          </button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">
+            บันทึก
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

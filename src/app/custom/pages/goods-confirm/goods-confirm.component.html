@@ -1,0 +1,174 @@
+<section id="goods-confirm">
+  <div class="card container-card">
+    <div class="card-header">
+      <h2 class="card-title">พัสดุรอยืนยันเจ้าของ</h2>
+    </div>
+    <div class="card-body">
+      <div
+        class="container-filter mb-3 d-flex align-items-center justify-content-between"
+      >
+        <h2>รายการพัสดุ</h2>
+        <div class="d-flex">
+          <div class="d-flex align-items-center mr-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="กรอกเลขพัสดุ"
+            />
+            <button class="btn btn-primary ml-2">ค้นหา</button>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper-table overflow-x-auto">
+        <table class="table align-items-center">
+          <thead class="thead-light">
+            <tr>
+              <th class="th-lot-no">เลขตู้</th>
+              <th class="th-order-in-lot">ลำดับชิ้น</th>
+              <th class="th-tracking-number">เลขพัสดุ</th>
+              <th class="th-product-picture">ภาพสินค้า</th>
+              <th class="th-product-description">คำอธิบายสินค้า</th>
+              <th class="th-product-menu">ทำรายการ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="item">
+              <td class="td-lot-no">Lot No.</td>
+              <td class="td-order-in-lot">Order in Lot</td>
+              <td class="td-tracking-number">JDVB13886832936</td>
+              <td class="td-product-picture">
+                <img
+                  src="/assets/img/mockup-img/dummy-products-300x300.png"
+                  class="product-picture"
+                />
+              </td>
+              <td class="td-product-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aperiam,
+              </td>
+              <td class="td-product-menu">
+                <a href="javascript:void(0)" (click)="isDisplayModal = true"
+                  >ยืนยันเจ้าของ</a
+                >
+              </td>
+            </tr>
+            <tr class="item">
+              <td class="td-lot-no">Lot No.</td>
+              <td class="td-order-in-lot">Order in Lot</td>
+              <td class="td-tracking-number">JDVB13886832936</td>
+              <td class="td-product-picture">
+                <img
+                  src="/assets/img/mockup-img/dummy-products-300x300.png"
+                  class="product-picture"
+                />
+              </td>
+              <td class="td-product-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aperiam,
+              </td>
+              <td class="td-product-menu">
+                <a href="javascript:void(0)" (click)="isDisplayModal = true"
+                  >ยืนยันเจ้าของ</a
+                >
+              </td>
+            </tr>
+            <tr class="item">
+              <td class="td-lot-no">Lot No.</td>
+              <td class="td-order-in-lot">Order in Lot</td>
+              <td class="td-tracking-number">JDVB13886832936</td>
+              <td class="td-product-picture">
+                <img
+                  src="/assets/img/mockup-img/dummy-products-300x300.png"
+                  class="product-picture"
+                />
+              </td>
+              <td class="td-product-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aperiam,
+              </td>
+              <td class="td-product-menu">
+                <a href="javascript:void(0)" (click)="isDisplayModal = true"
+                  >ยืนยันเจ้าของ</a
+                >
+              </td>
+            </tr>
+            <tr class="item">
+              <td class="td-lot-no">Lot No.</td>
+              <td class="td-order-in-lot">Order in Lot</td>
+              <td class="td-tracking-number">JDVB13886832936</td>
+              <td class="td-product-picture">
+                <img
+                  src="/assets/img/mockup-img/dummy-products-300x300.png"
+                  class="product-picture"
+                />
+              </td>
+              <td class="td-product-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aperiam,
+              </td>
+              <td class="td-product-menu">
+                <a href="javascript:void(0)" (click)="isDisplayModal = true"
+                  >ยืนยันเจ้าของ</a
+                >
+              </td>
+            </tr>
+            <tr class="item">
+              <td class="td-lot-no">Lot No.</td>
+              <td class="td-order-in-lot">Order in Lot</td>
+              <td class="td-tracking-number">JDVB13886832936</td>
+              <td class="td-product-picture">
+                <img
+                  src="/assets/img/mockup-img/dummy-products-300x300.png"
+                  class="product-picture"
+                />
+              </td>
+              <td class="td-product-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aperiam,
+              </td>
+              <td class="td-product-menu">
+                <a href="javascript:void(0)" (click)="isDisplayModal = true"
+                  >ยืนยันเจ้าของ</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="btc-modal flex-center" *ngIf="isDisplayModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">หลักฐานการสั่งซื้อสินค้า</h5>
+          <button
+            type="button"
+            class="close-btn"
+            data-dismiss="modal"
+            aria-label="Close"
+            (click)="isDisplayModal = false"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="file" name="" id="" />
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="isDisplayModal = false"
+          >
+            ปิด
+          </button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">
+            ส่งหลักฐานการสั่งซืื้อ
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,78 @@
+.exchange-container {
+  margin: 30px 40px;
+}
+
+.card-header {
+  background-color: #ca3342fc;
+  color: #fff;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-title {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.card-body {
+  padding: 30px 50px;
+}
+
+.top-section {
+  display: flex;
+  flex: row;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  height: 370px;
+}
+
+.left-panel {
+  display: flex;
+  flex: 2;
+  justify-content: center;
+  box-shadow: 0px 0px 4px 2px #00000040;
+  padding: 15px;
+  margin-right: 30px;
+}
+
+.right-panel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  box-shadow: 0px 0px 32px 0px #8898aa26;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.logo {
+  width: 100px;
+  height: 65px;
+  text-align: center;
+  align-self: center;
+  background-color: #afb1b4;
+  border-radius: 4px;
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
+table,
+td {
+  text-align: center;
+}
+
+.rate-table-row {
+  border: 1px solid #e9ecef !important;
+}
+
+.btc-modal .modal-dialog .modal-content {
+  height: 50vh;
+}
+
+.text-white {
+  color: white;
+}

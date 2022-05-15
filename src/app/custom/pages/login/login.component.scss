@@ -1,0 +1,25 @@
+.main-content {
+  background: linear-gradient(rgba(255, 0, 22, 0.27), rgba(255, 74, 0, 0.43)),
+    url("/assets/img/background/bg-img.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+#login-form {
+  input {
+    color: #000000;
+  }
+  .wrap-password1 {
+    position: relative;
+
+    .eye-icon {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      z-index: 5;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+.nav-link i.ni {
+  position: relative;
+  top: 0px;
+}
+.sidenav-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    padding: 0 17px;
+  }
+}
+
+.navbar-inner {
+  .nav-item {
+    white-space: nowrap;
+    i {
+      color: #495057;
+      position: relative;
+      left: -2px;
+    }
+  }
+}
+
+.break-line {
+  width: 90%;
+}
+
+.nav-link-text {
+  color: #495057;
+}
+
+.nav-item.international-shipping-rate {
+  width: 270px;
+  white-space: normal !important;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+  color: #ca3544 !important;
+}
+.sidenav-toggler-inner {
+  position: relative;
+  left: -2px;
+}
+
+// Colors
+.black {
+  color: black !important;
+}
+.salmon {
+  color: salmon !important;
+}
+.aquamarine {
+  color: aquamarine !important;
+}
+.goldenrod {
+  color: goldenrod !important;
+}
+.coral {
+  color: coral !important;
+}
+.crimson {
+  color: crimson !important;
+}

@@ -1,0 +1,54 @@
+#payment-notice {
+  .card.information {
+    background-color: var(--btc-color);
+    width: 50%;
+    .item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .container-card.bill {
+    .form-control {
+      height: 30px;
+      max-width: 300px;
+    }
+    .item {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+    }
+    .item2 {
+      width: 50%;
+    }
+    .item3,
+    .item4,
+    .item5 {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      align-items: center;
+    }
+    .item6 {
+      .dropzone {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card.information {
+      width: 100% !important;
+    }
+    .item2 {
+      width: 100% !important;
+    }
+    .item3,
+    .item4,
+    .item5 {
+      display: block !important;
+    }
+  }
+}

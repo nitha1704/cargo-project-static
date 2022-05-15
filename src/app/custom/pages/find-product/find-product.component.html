@@ -1,0 +1,29 @@
+<section id="products">
+  <div class="inner">
+    <h1 class="mb-4">Products</h1>
+    <div class="loading" *ngIf="isLoading">
+      <h1>Loading ...</h1>
+    </div>
+    <div class="products-container" *ngIf="!isLoading && cartData.length > 0">
+      <div class="item card bg-white p-3" *ngFor="let product of cartData">
+        <div class="wrap-img text-center">
+          <img src="{{ product.image }}" class="product-img" />
+        </div>
+        <p class="title mt-3">{{ product.title }}</p>
+        <div class="wrapper mt-2 d-flex justify-content-between">
+          <span class="shop-number bold">{{ product.shop_number }}</span>
+          <span class="price">¥{{ product.price }}</span>
+        </div>
+        <button class="btn btn-block btn-dark mt-3" (click)="addItem(product)">
+          Add to cart
+        </button>
+      </div>
+    </div>
+  </div>
+  <a class="cart-icon text-dark" [routerLink]="['/web/cart']">
+    <i class="fas fa-cart-plus"></i>
+    <div class="cart-item-number flex-center bg-danger">
+      <span class="text-white">{{ this.totalQuantity || 0 }}</span>
+    </div>
+  </a>
+</section>

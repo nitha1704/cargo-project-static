@@ -1,0 +1,176 @@
+<section class="exchange-container">
+  <div class="top-section">
+    <div class="left-panel">
+      <h3>ประกาศ</h3>
+    </div>
+    <div class="right-panel">
+      <div class="logo">Logo</div>
+      <table class="table align-items-center table-flush mt-4">
+        <tbody>
+          <tr class="rate-table-row">
+            <td colspan="2">อัตราแลกเปลี่ยน ประจำวันที่ 22-02-2022</td>
+          </tr>
+          <tr class="rate-table-row">
+            <td class="w-50">บาท > หยวน</td>
+            <td class="w-50">หยวน > บาท</td>
+          </tr>
+          <tr class="rate-table-row">
+            <td class="w-50">5.45</td>
+            <td class="w-50">กรุณาสอบถามทางไลน์ @btccargo</td>
+          </tr>
+        </tbody>
+      </table>
+      <h5>เงื่อนไขบริการ</h5>
+      <ol>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+        <li>...</li>
+      </ol>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">รายการแลกเงินทั้งหมด</h2>
+      <a
+        class="btn btn-icon btn-3 btn-primary"
+        type="button"
+        href="javascript:void()"
+      >
+        <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
+        <span class="btn-inner--text">สร้างรายการใหม่</span>
+      </a>
+    </div>
+    <div class="card-body">
+      <div class="text-right">
+        <p>ดูวิธีใช้ระบบฝากจ่าย</p>
+        <p>ดู ขั้นตอนการขอคืนเงิน</p>
+        <p>กรุณายืนยันตัว Alipay ดูวิธียืนยันตัว</p>
+        <p>ดูข้อมูลเพิ่มเตืม</p>
+      </div>
+      <table class="table align-items-center table-flush mt-4">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">เลขที่รายการ</th>
+            <th scope="col">วัน-เวลาที่สร้าง</th>
+            <th scope="col">ยอดเงินที่แลก</th>
+            <th scope="col">ยอดเงินที่ต้องชำระ</th>
+            <th scope="col">สถานะ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>001234</td>
+            <td>22-02-2022</td>
+            <td>2000.00 หยวน</td>
+            <td>10900.00 บาท</td>
+            <td>ดำเนินการแล้ว</td>
+          </tr>
+
+          <tr>
+            <td>012345</td>
+            <td>25-02-2022</td>
+            <td>585.00 หยวน</td>
+            <td>3188.25 บาท</td>
+            <td>ยกเลิกแล้ว</td>
+          </tr>
+
+          <tr>
+            <td>123456</td>
+            <td>28-02-2022</td>
+            <td>23768.00 หยวน</td>
+            <td>129535.60 บาท</td>
+            <td>
+              <p>รอชำระเงิน</p>
+              <a href="javascript:void()">แจ้งชำระเงิน</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="btc-modal flex-center" *ngIf="displayModal === 'unverify'">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body text-center align-self-center">
+          <h1 class="mb-3 mt-3">กรุณายืนยันตัวตนก่อนใช้บริการ</h1>
+          <div class="d-flex row justify-content-center mb-3">
+            <h1>สถานะ</h1>
+            <h1 class="text-danger ml-2">ยังไม่ได้ยืนยันตัวตน</h1>
+          </div>
+          <h2 class="mb-3">อัพโหลดรูปถ่ายหน้าตรงคู่กับบัตรประชาชน</h2>
+          <h2 class="text-danger mb-3">
+            (ให้เห็นหน้าคู่กับบัตรประชาชนอย่างชัดเจน)
+          </h2>
+          <button type="button" class="btn btn-primary align-self-center">
+            <h2 class="text-white">Choose file</h2>
+          </button>
+        </div>
+        <div class="modal-footer justify-content-center mb-3">
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="displayModal = 'pending'"
+          >
+            <h2 class="text-white">กลับไปที่หน้าภาพรวมบัญชี</h2>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btc-modal flex-center" *ngIf="displayModal === 'pending'">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body text-center align-self-center">
+          <h1 class="mb-3 mt-3">กรุณายืนยันตัวตนก่อนใช้บริการ</h1>
+          <div class="d-flex row justify-content-center mb-5">
+            <h1>สถานะ</h1>
+            <h1 class="text-warning ml-2">อยู่ระหว่างการตรวจสอบ</h1>
+          </div>
+          <p class="mt-5">กรุณารอเจ้าหน้าที่ทำการตรวจสอบข้อมูลการยืนยันตัว</p>
+
+          <p>ท่านจะได้รับการแจ้งเตือนในระบบเมื่อเจ้าหน้าที่</p>
+          <p>ทำการตรวจสอบข้อมูลแล้ว</p>
+        </div>
+        <div class="modal-footer justify-content-center mb-3">
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="displayModal = 'verified'"
+          >
+            <h2 class="text-white">กลับไปที่หน้าภาพรวมบัญชี</h2>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btc-modal flex-center" *ngIf="displayModal === 'verified'">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body text-center align-self-center">
+          <h1 class="mb-3 mt-3">กรุณายืนยันตัวตนก่อนใช้บริการ</h1>
+          <div class="d-flex row justify-content-center mb-5">
+            <h1>สถานะ</h1>
+            <h1 class="text-success ml-2">ยืนยันตัวตนเรียบร้อย</h1>
+          </div>
+          <button
+            type="button"
+            class="btn btn-success mt-5"
+            (click)="displayModal = ''"
+          >
+            <h2 class="text-white">เริ่มใช้บริการแลกเงิน</h2>
+          </button>
+        </div>
+        <div class="modal-footer justify-content-center mb-3">
+          <button
+            type="button"
+            class="btn btn-danger"
+            [routerLink]="['/web/warehouse-address']"
+          >
+            <h2 class="text-white">กลับไปที่หน้าภาพรวมบัญชี</h2>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

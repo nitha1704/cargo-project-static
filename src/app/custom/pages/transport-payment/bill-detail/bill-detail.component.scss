@@ -1,0 +1,36 @@
+#bill-detail {
+  .bill-detail-section1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 10px;
+    .item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      column-gap: 10px;
+      .sub-item1 {
+        font-weight: bold;
+      }
+    }
+  }
+  .bill-detail-section3 {
+    .item {
+      display: grid;
+      grid-template-columns: 1fr 90px;
+      text-align: right;
+      margin: 5px 0;
+    }
+    .grand-total-price {
+      font-weight: bold;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .bill-detail-section1 {
+      grid-template-columns: 1fr;
+      .item {
+        grid-template-columns: 1fr;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}

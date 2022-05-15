@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+<section id="faq">
+    <div class="wrapper">
+        <div class="faq-sidebar">
+            <div class="faq-list">
+                <h1>คำถามที่ถามบ่อย</h1>
+                <div class="faq-item faq-item1">
+                    <a routerLink="conditions" routerLinkActive="active">
+                        ข้อตกลง/เงื่อนไขการใช้บริการ
+                    </a>
+                </div>
+                <div class="faq-item faq-item2">
+                    <a routerLink="how-to-calculate" routerLinkActive="active">
+                        วิธีคำนวณค่าขนส่งพัสดุ
+                    </a>
+                </div>
+                <div class="faq-item faq-item3">
+                    <a routerLink="storage-fee" routerLinkActive="active">
+                        ค่าเก็บรักษาพัสดุ
+
+                    </a>
+                </div>
+                <div class="faq-item faq-item4">
+                    <a routerLink="invoice" routerLinkActive="active">
+                        BTC Cargo สามารถออกใบเสร็จ<br/>
+                        หรือใบกำกับภาษีได้หรือไม่
+                    </a>
+                </div>
+                <div class="faq-item faq-item5">
+                    <a routerLink="delivery" routerLinkActive="active">
+                        วิธีการจัดส่งพัสดุในไทย
+                    </a>
+                </div>
+                <div class="faq-item faq-item6">
+                    <a routerLink="status" routerLinkActive="active">
+                        การเช็คสถานะพัสดุและเพิ่มเลขพัสดุใหม่
+                    </a>
+                </div>
+                <div class="faq-item faq-item7">
+                    <a routerLink="goods-type" routerLinkActive="active">
+                        สินค้าแต่ละประเภทดูอย่างไร
+                    </a>
+                </div>
+                <div class="faq-item faq-item8">
+                    <a routerLink="goods-type-special" routerLinkActive="active">
+                        การขนส่งสินค้าลิขสิทธิ์และอย.
+                    </a>
+                </div>
+                <div class="faq-item faq-item9">
+                    <a routerLink="pallet" routerLinkActive="active">
+                        บริการตีลังไม้
+                    </a>
+                </div>
+                <div class="faq-item faq-item10">
+                    <a routerLink="exchange" routerLinkActive="active">
+                        สร้างรายการฝากจ่ายเงินหยวนไม่ได้?
+                    </a>
+                </div>
+
+                <a [routerLink]="['/web']" class="to-main-page">
+                    กลับสู่หน้าหลัก
+                </a>
+            </div>
+        </div>
+        <div class="faq-content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</section>

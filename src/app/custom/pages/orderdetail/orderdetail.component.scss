@@ -1,0 +1,28 @@
+#order-detail {
+  .order-detail {
+    background-color: white;
+  }
+  .order-detail-header {
+    background: #e5e5e5;
+    margin: 0;
+    .th {
+      padding: 10px 15px;
+      color: black;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+  }
+  .order-detail-items {
+    .item {
+      margin: 0;
+      border: 1px solid #e1e6ef;
+    }
+
+    .td {
+      color: black;
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+    }
+  }
+}

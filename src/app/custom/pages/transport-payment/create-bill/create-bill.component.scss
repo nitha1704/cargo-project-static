@@ -1,0 +1,21 @@
+#create-bill {
+  .container-filter {
+    .discount-code {
+      max-width: 300px;
+    }
+  }
+  @media (max-width: 576px) {
+    .create-bill-section1 {
+      .card-header {
+        display: block !important;
+      }
+      h2.card-title {
+        margin-bottom: 15px !important;
+      }
+    }
+  }
+}
+
+.btc-modal .modal-dialog .modal-content {
+  height: 72vh;
+}

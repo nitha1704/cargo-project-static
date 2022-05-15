@@ -1,0 +1,168 @@
+<section>
+  <div class="card details-card">
+    <div class="card-header">
+      <h2 class="card-title">รายละเอียดพัสดุ</h2>
+    </div>
+    <div class="card-body">
+      <div
+        class="d-flex flex-row justify-content-between align-items-center mb-3"
+      >
+        <h2>รายการพัสดุ</h2>
+        <div class="d-flex flex-row align-items-center">
+          <p class="text-nowrap mr-3">เลขพัสดุ</p>
+          <input
+            type="text"
+            class="form-control mr-3 input-text w-auto"
+            placeholder=""
+            maxlength="50"
+          />
+          <p class="text-nowrap mr-3">วันที่ออกจากจีน</p>
+          <div class="form-group mr-3 mb-0">
+            <div class="input-group input-group-alternative">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="ni ni-calendar-grid-58"></i>
+                </span>
+              </div>
+              <input
+                type="text"
+                placeholder=""
+                class="form-control"
+                bsDatepicker
+                [bsValue]="bsValue"
+                [bsConfig]="{ isAnimated: true, containerClass: 'theme-red' }"
+              />
+            </div>
+          </div>
+          <p class="text-nowrap mr-3">สถานะ</p>
+          <div class="dropdown" dropdown>
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              dropdownToggle
+            >
+              {{ status }}
+            </button>
+            <div
+              aria-labelledby="dropdownMenuButton"
+              *dropdownMenu
+              class="dropdown-menu"
+            >
+              <a class="dropdown-item" (click)="status = 'เข้าโกดังจีน'"
+                >เข้าโกดังจีน</a
+              >
+              <a class="dropdown-item" (click)="status = 'ออกจีน'">ออกจีน</a>
+              <a class="dropdown-item" (click)="status = 'ถึงไทย'">ถึงไทย</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <table class="table align-items-center table-flush table-responsive">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">เลขตู้</th>
+            <th scope="col">เลขพัสดุ</th>
+            <th scope="col">ประเภทสินค้า</th>
+            <th scope="col">ออกจีน</th>
+            <th scope="col">คาดว่าจะถึงไทย</th>
+            <th scope="col">กว้าง</th>
+            <th scope="col">ยาว</th>
+            <th scope="col">สูง</th>
+            <th scope="col">ปริมาตร</th>
+            <th scope="col">น้ำหนัก</th>
+            <th scope="col">จำนวนกล่อง</th>
+            <th scope="col">ตีลัง</th>
+            <th scope="col">ค่าขนส่งในจีน</th>
+            <th scope="col">อื่นๆ</th>
+            <th scope="col">หน่วยละ</th>
+            <th scope="col">ค่าขนส่ง</th>
+            <th scope="col">ค่าจัดเก็บพัสดุ</th>
+            <th scope="col">ค่า QC</th>
+            <th scope="col">หมายเหตุ</th>
+            <th scope="col">สถานะ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lot No. / order</td>
+            <td>Tracking No.</td>
+            <td>P/D/HY/SP/SD</td>
+            <td>DD/MM/YY</td>
+            <td>
+              <div>รถ+15DD/MM/YY</div>
+              <div>เรือ+30DD/MM/YY</div>
+            </td>
+            <td>width cm</td>
+            <td>length cm</td>
+            <td>height cm</td>
+            <td>volume m^3</td>
+            <td>weight kg</td>
+            <td>Quantity</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>Note</td>
+            <td>ออกจีน / ถึงไทย / จัดส่งแล้ว</td>
+          </tr>
+
+          <tr>
+            <td>Lot No. / order</td>
+            <td>Tracking No.</td>
+            <td>P/D/HY/SP/SD</td>
+            <td>DD/MM/YY</td>
+            <td>
+              <div>รถ+15DD/MM/YY</div>
+              <div>เรือ+30DD/MM/YY</div>
+            </td>
+            <td>width cm</td>
+            <td>length cm</td>
+            <td>height cm</td>
+            <td>volume m^3</td>
+            <td>weight kg</td>
+            <td>Quantity</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>Note</td>
+            <td>ออกจีน / ถึงไทย / จัดส่งแล้ว</td>
+          </tr>
+
+          <tr>
+            <td>Lot No. / order</td>
+            <td>Tracking No.</td>
+            <td>P/D/HY/SP/SD</td>
+            <td>DD/MM/YY</td>
+            <td>
+              <div>รถ+15DD/MM/YY</div>
+              <div>เรือ+30DD/MM/YY</div>
+            </td>
+            <td>width cm</td>
+            <td>length cm</td>
+            <td>height cm</td>
+            <td>volume m^3</td>
+            <td>weight kg</td>
+            <td>Quantity</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>XX Baht</td>
+            <td>Note</td>
+            <td>ออกจีน / ถึงไทย / จัดส่งแล้ว</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,73 @@
+<section id="how-to-calculate">
+    <div class="container">
+        <h3>วิธีคำนวณค่าขนส่งพัสดุ</h3>
+        <p>
+            <span class="font-weight-bold">การคำนวณค่าขนส่งคิดได้ 2 แบบ </span>
+            <span class="text-danger">* คิดจากขนาด และน้ำหนักของกล่องพัสดุ *</span>
+        </p>
+        <p>
+            <u>วิธีการคำนวณ</u>
+        </p>
+        <ol>
+            <li>หาขนาดคิวบิกเมตร<br />
+                <small>โดยนำขนาดกล่อง กว้าง ยาว สูง (หน่วยเซนติเมตร) มาคูณกัน จากนั้นหารด้วย 1 ล้าน
+                    จะได้ขนาดคิวบิกเมตร</small>
+            </li>
+            <li>นำคิวบิกเมตรที่คำนวณได้มาคูณกับ 200 เพื่อหาน้ำหนักที่ควรหนักของพัสดุ<br />
+                <small>(1 คิวบิกเมตรจะต้องหนัก 200 กิโลกรัม)</small>
+            </li>
+            <li>ผลลัพธ์ที่ได้จากข้อ 2 คือน้ำหนักที่พัสดุขนาดเท่านี้ควรหนัก (ขอเรียกว่า 'น้ำหนักควรหนัก')</li>
+            <li>เปรียบเทียบน้ำหนักจริงและน้ำหนักควรหนัก
+                <ol>
+                    <li>หากน้ำหนักที่ชั่งจริง <u>มากกว่า</u> น้ำหนักควรหนัก = สินค้าหนัก : <span
+                            class="text-danger">ใช้เรทค่าขนส่งแบบกิโลกรัมคำนวณ</span></li>
+                    <li>น้ำหนักที่ชั่งจริง <u>น้อยกว่า</u> น้ำหนักควรหนัก = สินค้าเบา : <span
+                            class="text-danger">ใช้เรทค่าขนส่งแบบคิวบิกเมตรคำนวณ</span></li>
+                </ol>
+            </li>
+        </ol>
+
+        <div class="calculator pt-3">
+            <p class="my-0">
+                <u>เครื่องคำนวณ</u>
+            </p>
+            <div class="row pt-3">
+                <div class="col-2">
+                    <label>กว้าง (ซม.)</label>
+                    <input type="text" id="width" class="form-control form-control-sm">
+                </div>
+                <div class="col-2">
+                    <label>ยาว (ซม.)</label>
+                    <input type="text" id="long" class="form-control form-control-sm">
+                </div>
+                <div class="col-2">
+                    <label>สูง (ซม.)</label>
+                    <input type="text" id="height" class="form-control form-control-sm">
+                </div>
+                <div class="col-2">
+                    <label>นน. (กก.)</label>
+                    <input type="text" id="weight" class="form-control form-control-sm">
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-2">
+                    <label>คิวบิกเมตร</label>
+                    <input type="text" id="cubic" class="form-control form-control-sm" disabled="">
+                </div>
+                <div class="col-2">
+                    <label>ควรหนัก</label>
+                    <input type="text" id="shouldweight" class="form-control form-control-sm" disabled="">
+                </div>
+                <div class="col-2">
+                    <label>&nbsp;</label>
+                    <p id="cal-result" class="text-success"></p>
+                </div>
+            </div>
+            <div class="row pt-4">
+                <div class="col-4">
+                    <button (click)="cal()" class="btn btn-sm btn-primary">คำนวณ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

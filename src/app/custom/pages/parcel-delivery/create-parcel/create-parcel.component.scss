@@ -1,0 +1,38 @@
+.card-header {
+  background-color: #ca3342fc;
+  color: #fff;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-title {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.parcel-card {
+  margin: 0px 20px;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+.create-button {
+  width: 320px;
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
+th {
+  text-align: center;
+}

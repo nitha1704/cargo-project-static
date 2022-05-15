@@ -1,0 +1,130 @@
+<section id="payment-notice">
+  <div class="card container-card">
+    <div class="card-header">
+      <span class="text-white">แจ้งชำระเงิน</span>
+    </div>
+    <div class="card-body">
+      <h4 class="mb-2">กรุณาโอนเงินเข้าที่</h4>
+      <div class="card information px-3 py-2 mb-0 text-white">
+        <div class="item">
+          <span>ธนาคาร: </span>
+          <span>กสิกรไทย</span>
+        </div>
+        <div class="item">
+          <span>สาขา: </span>
+          <span>เดอะมอลล์งามวงศ์วาน</span>
+        </div>
+        <div class="item">
+          <span>ชื่อบัญชี: </span>
+          <span>บจก. บีทีซี คาร์โก้ แอนด์ เซอร์วิซ</span>
+        </div>
+        <div class="item">
+          <span>ประเภทบัญชี: </span>
+          <span>กระแสรายวัน</span>
+        </div>
+        <div class="item">
+          <span>เลขที่บัญชี: </span>
+          <span>050-2-93840-1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card container-card bill">
+    <div class="card-header">
+      <span class="text-white">เลขที่บิล #000000</span>
+    </div>
+    <div class="card-body">
+      <div class="item item1">
+        <span>ยอดที่ต้องชำระเงินทั้งหมด: </span>
+        <span class="text-green">100 บาท</span>
+      </div>
+      <div class="item item2">
+        <span class="text-red text-underline"
+          >กรุณาชำระเงินตามช่องทางการชำระเงินที่แสดงในหน้านี้เท่านั้น
+          และกรอกรายละเอียดวัน เวลาที่ชำระให้ตรงกับหลักฐานการโอน</span
+        >
+      </div>
+      <div class="item item3">
+        <span
+          >ยอดเงินที่โอน (ตามสลิป)<span class="text-red">* ตัวเลขเท่านั้น</span>
+        </span>
+        <input
+          type="number"
+          min="1"
+          class="form-control"
+          #amount
+          (focusout)="checkValue(amount)"
+        />
+      </div>
+      <div class="item item4">
+        <span>วันที่โอนยอดเงิน (ตามสลิป)<span class="text-red">*</span></span>
+        <input
+          type="string"
+          id="input-payment-date"
+          placeholder=""
+          class="form-control"
+          bsDatepicker
+          [bsConfig]="{
+            isAnimated: true,
+            containerClass: 'theme-red',
+            dateInputFormat: 'YYYY-MM-DD'
+          }"
+          #date
+        />
+      </div>
+      <div class="item item5 timepicker">
+        <span
+          >เวลาที่โอนยอดเงิน (ตามสลิป)<span class="text-red"
+            >* รูปแบบ 24 ชั่วโมง</span
+          >
+        </span>
+        <timepicker
+          [(ngModel)]="myTime"
+          [showMeridian]="isMeridian"
+          hoursPlaceholder="ชั่วโมง"
+          minutesPlaceholder="นาที"
+        ></timepicker>
+      </div>
+      <div class="item item6">
+        <span>หลักฐานการชำระเงิน*</span>
+        <span class="block my-2"></span>
+        <div
+          class="dropzone dropzone-single"
+          data-toggle="dropzone"
+          data-dropzone-url="http://"
+        >
+          <div class="fallback">
+            <div class="custom-file">
+              <input
+                type="file"
+                class="custom-file-input"
+                id="dropzoneBasicUpload"
+              />
+              <label class="custom-file-label" for="dropzoneBasicUpload"
+                >Choose file</label
+              >
+            </div>
+          </div>
+          <div class="dz-preview dz-preview-single ">
+            <div class="dz-preview-cover">
+              <img
+                class="dz-preview-img"
+                src="..."
+                alt="..."
+                data-dz-thumbnail=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="confirm mt-2">
+        <button
+          class="btn btn-primary"
+          (click)="billSubmit(amount.value, date.value, myTime)"
+        >
+          บันทึก
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

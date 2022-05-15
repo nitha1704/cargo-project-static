@@ -1,0 +1,85 @@
+#profile {
+  margin-top: var(--navbarAdminMarginBottomMinus);
+}
+#user-information {
+  input,
+  textarea {
+    color: #030303;
+  }
+  .update-profile-modal-box {
+    display: none;
+  }
+  .update-profile-modal-box.active {
+    display: block;
+  }
+  .update-profile-modal-box.sticky {
+    position: sticky;
+    top: 10px;
+    z-index: 1;
+  }
+  .close-modal-box {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    i {
+      cursor: pointer;
+      color: white;
+      font-size: 20px;
+    }
+  }
+}
+
+#user {
+  .card-body {
+    padding: 60px 0 0 0;
+  }
+  .card-profile-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    gap: 10px;
+    div {
+      margin: 0;
+      .heading {
+        font-size: 0.8rem;
+      }
+    }
+  }
+  .user-form {
+    .form-group {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.social-connect {
+  .social-info {
+    display: flex;
+    align-items: center;
+  }
+  .user-thumbnail {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
+}
+
+#user-form1 {
+  .input-group-birthdate {
+    box-shadow: 0 3px 2px rgb(233 236 239 / 5%) !important;
+    border: 1px solid #dee2e6 !important;
+  }
+}
+
+.address-button {
+  width: 100%;
+  border: 1px solid #dee2e6;
+  margin-bottom: 20px;
+  padding: 20px 15px;
+}
+
+.modal-body {
+  padding: 0 1.5rem;
+}

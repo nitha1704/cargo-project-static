@@ -1,0 +1,24 @@
+<section id="products">
+    <div class="inner">
+        <h1 class="mb-4">Products</h1>
+        <div class="loading" *ngIf="isLoading">
+            <h1>Loading ...</h1>
+        </div>
+        <div class="products-container" *ngIf="!isLoading && cartData.length > 0">
+            <div class="item" *ngFor="let product of cartData">
+                <div class="wrap-img">
+                    <img src="{{product.image}}" class="mockup-img" />
+                </div>
+                <p class="title">{{product.title}}</p>
+                <button (click)="addItem(product)">Add to cart</button>
+            </div>
+        </div>
+    </div>
+    <a class="cart-icon" [routerLink]="['/web/cart']">
+        <i class="fas fa-cart-plus"></i>
+        <div class="cart-item-number">
+            <span>{{this.totalQuantity || 0}}</span>
+        </div>
+    </a>
+
+</section>
