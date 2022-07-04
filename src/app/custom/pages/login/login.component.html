@@ -1,5 +1,5 @@
 <section id="login" *ngIf="!hasUser">
-  <div class="main-content">
+  <div class="main-content flex-center">
     <div class="header pt-5">
       <div class="container pb-5">
         <div class="row justify-content-center">
@@ -13,6 +13,7 @@
                 <div class="btn-wrapper text-center">
                   <app-google-login></app-google-login>
                   <app-facebook-login></app-facebook-login>
+                  <div class="newline"></div>
                   <app-line-login></app-line-login>
                 </div>
               </div>
